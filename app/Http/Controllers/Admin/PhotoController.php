@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Photo;
 use App\Http\Requests\StorePhotoRequest;
 use App\Http\Requests\UpdatePhotoRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
@@ -13,7 +15,8 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        //
+        //dd(Photo::all());
+        return view('admin.photos.index', ['photos' => Photo::orderByDesc('id')->paginate(8)]);
     }
 
     /**
@@ -21,7 +24,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.photos.create');
     }
 
     /**
@@ -29,7 +32,15 @@ class PhotoController extends Controller
      */
     public function store(StorePhotoRequest $request)
     {
-        //
+        //dd($request->all());
+        $validated = $request->validated();
+        if (isset($validated['photo'])) {
+            $validated['photo'] = Storage::put('uploads', $validated['photo']);
+        }
+
+        //dd($validated);
+        Photo::create($validated);
+        return to_route('admin.photos.index')->with('message', 'Congratulation Photo added Correctly!');
     }
 
     /**

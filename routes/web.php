@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +21,11 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])
-    ->name('admin')
+    ->name('admin.')
     ->prefix('admin')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('photos', PhotoController::class);
     });
 
 

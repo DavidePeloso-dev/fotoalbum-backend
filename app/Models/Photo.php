@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     use HasFactory;
+
+    public $fillable = ['title', 'photo', 'description', 'evidence'];
 }
