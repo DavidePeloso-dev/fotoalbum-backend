@@ -34,10 +34,10 @@
                 <tr class="table-dark">
                     <td scope="row">{{$photo->id}}</td>
                     <td>
-                        @if(Str::startsWith($photo->photo, 'https://'))
-                        <img style="width: 150px;" loading="lazy" src="{{$photo->photo}}" alt="">
+                        @if(Str::startsWith($photo->image, 'https://'))
+                        <img style="width: 150px;" loading="lazy" src="{{$photo->image}}" alt="">
                         @else
-                        <img style="width: 150px;" loading="lazy" src="{{asset('storage/' . $photo->photo)}}" alt="">
+                        <img style="width: 150px;" loading="lazy" src="{{asset('storage/' . $photo->image)}}" alt="">
                         @endif
                     </td>
                     <td>{{$photo->title}}</td>

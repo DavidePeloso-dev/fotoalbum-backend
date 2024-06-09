@@ -34,8 +34,8 @@ class PhotoController extends Controller
     {
         //dd($request->all());
         $validated = $request->validated();
-        if (isset($validated['photo'])) {
-            $validated['photo'] = Storage::put('uploads', $validated['photo']);
+        if (isset($validated['image'])) {
+            $validated['image'] = Storage::put('uploads', $validated['image']);
         }
 
         //dd($validated);
@@ -67,12 +67,12 @@ class PhotoController extends Controller
 
         $validated = $request->validated();
 
-        if ($request->has('photo')) {
-            if ($photo->photo) {
-                Storage::delete($photo->photo);
+        if ($request->has('image')) {
+            if ($photo->image) {
+                Storage::delete($photo->image);
             }
 
-            $validated['photo'] = Storage::put('uploads', $request->photo);
+            $validated['image'] = Storage::put('uploads', $request->image);
         }
         if (!$request->has('evidence')) {
             $validated['evidence'] = 0;

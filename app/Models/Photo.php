@@ -9,5 +9,5 @@ class Photo extends Model
 {
     use HasFactory;
 
-    public $fillable = ['title', 'photo', 'description', 'evidence'];
+    public $fillable = ['title', 'image', 'description', 'evidence'];
 }

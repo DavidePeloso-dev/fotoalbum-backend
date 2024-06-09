@@ -24,17 +24,17 @@
         <h6 class="fw-normal">Current Photo</h6>
         <div class="d-flex align-items-center justify-content-between mb-3">
             <div>
-                @if(Str::startsWith($photo->photo, 'https://'))
-                <img style="width: 150px;" loading="lazy" src="{{$photo->photo}}" alt="">
+                @if(Str::startsWith($photo->image, 'https://'))
+                <img style="width: 150px;" loading="lazy" src="{{$photo->image}}" alt="">
                 @else
-                <img style="width: 150px;" loading="lazy" src="{{asset('storage/' . $photo->photo)}}" alt="">
+                <img style="width: 150px;" loading="lazy" src="{{asset('storage/' . $photo->image)}}" alt="">
                 @endif
             </div>
             <div class="mb-3 w-75">
-                <label for="photo" class="form-label">Choose file</label>
-                <input type="file" class="form-control" name="photo" id="photo" placeholder="" aria-describedby="photohelper" />
-                <div id="photohelper" class="form-text">Upload your Photo</div>
-                @error('photo')
+                <label for="image" class="form-label">Choose file</label>
+                <input type="file" class="form-control" name="image" id="image" placeholder="" aria-describedby="imagehelper" />
+                <div id="imagehelper" class="form-text">Upload your Photo</div>
+                @error('image')
                 <div class="text-danger">{{$message}}</div>
                 @enderror
             </div>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->text('description')->nullable();
-            $table->string('photo')->nullable();
+            $table->string('image')->nullable();
             $table->boolean('evidence')->default(false);
             $table->timestamps();
         });

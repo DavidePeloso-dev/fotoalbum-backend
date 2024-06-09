@@ -22,10 +22,10 @@
         </div>
         <div class="d-flex align-items-center justify-content-between">
             <div class="mb-3 w-75">
-                <label for="photo" class="form-label">Choose file</label>
-                <input type="file" class="form-control" name="photo" id="photo" placeholder="" aria-describedby="photohelper" />
-                <div id="photohelper" class="form-text">Upload your Photo</div>
-                @error('photo')
+                <label for="image" class="form-label">Choose file</label>
+                <input type="file" class="form-control" name="image" id="image" placeholder="" aria-describedby="imagehelper" />
+                <div id="imagehelper" class="form-text">Upload your Photo</div>
+                @error('image')
                 <div class="text-danger">{{$message}}</div>
                 @enderror
             </div>
