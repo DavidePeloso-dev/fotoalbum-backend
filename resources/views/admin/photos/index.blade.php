@@ -12,6 +12,8 @@
         </div>
     </section>
 
+    @include('partials.session-message')
+
     <div class="table-responsive-md">
         <table class="table table-striped table-hover table-borderless table-secondary align-middle">
             <thead class="table-dark">
@@ -44,7 +46,11 @@
                             <input class="form-check-input ms-3" type="checkbox" value="" disabled {{$photo->evidence === 1 ? 'checked' : ''}} />
                         </div>
                     </td>
-                    <td>View|Edit|Delete</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{route('admin.photos.show', $photo)}}">View</a>
+                        <a class="btn btn-secondary" href="{{route('admin.photos.edit', $photo)}}">Edit</a>
+                        <a class="btn btn-danger" href="{{route('admin.photos.show', $photo)}}">Delete</a>
+                    </td>
                 </tr>
                 @empty
                 <tr class="table-dark">

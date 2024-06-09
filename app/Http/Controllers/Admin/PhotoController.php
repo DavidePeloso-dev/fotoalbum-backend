@@ -48,7 +48,7 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        //
+        return view('admin.photos.show', compact('photo'));
     }
 
     /**
@@ -56,7 +56,7 @@ class PhotoController extends Controller
      */
     public function edit(Photo $photo)
     {
-        //
+        return view('admin.photos.edit', compact('photo'));
     }
 
     /**
@@ -64,7 +64,23 @@ class PhotoController extends Controller
      */
     public function update(UpdatePhotoRequest $request, Photo $photo)
     {
-        //
+
+        $validated = $request->validated();
+
+        if ($request->has('photo')) {
+            if ($photo->photo) {
+                Storage::delete($photo->photo);
+            }
+
+            $validated['photo'] = Storage::put('uploads', $request->photo);
+        }
+        if (!$request->has('evidence')) {
+            $validated['evidence'] = 0;
+        }
+
+        //dd($validated);
+        $photo->update($validated);
+        return to_route('admin.photos.index')->with('message', 'Congratulation Photo updated Correctly!');
     }
 
     /**
