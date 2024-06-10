@@ -49,7 +49,7 @@
                     <td>
                         <a class="btn btn-primary" href="{{route('admin.photos.show', $photo)}}">View</a>
                         <a class="btn btn-secondary" href="{{route('admin.photos.edit', $photo)}}">Edit</a>
-                        <a class="btn btn-danger" href="{{route('admin.photos.show', $photo)}}">Delete</a>
+                        @include('admin.photos.partials.delete-button')
                     </td>
                 </tr>
                 @empty
