@@ -3,16 +3,15 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdatePhotoRequest extends FormRequest
+class UpdateCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,11 +22,7 @@ class UpdatePhotoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', Rule::unique('photos')->ignore($this->photo->id)],
-            'category_id' => 'nullable|exists:categories,id',
-            'description' => 'nullable',
-            'image' => 'nullable|image|max:700',
-            'evidence' => 'nullable'
+            //
         ];
     }
 }

@@ -21,6 +21,17 @@
             <div class="text-danger">{{$message}}</div>
             @enderror
         </div>
+
+        <div class="mb-3">
+            <label for="category_id" class="form-label">Photo's Category</label>
+            <select class="form-select " name="category_id" id="category_id">
+                <option selected disabled>Select Photo's Category</option>
+                @foreach($categories as $category)
+                <option {{ old("category_id", $photo->category_id) == $category->id ? 'selected' : '' }} value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
         <h6 class="fw-normal">Current Photo</h6>
         <div class="d-flex align-items-center justify-content-between mb-3">
             <div>

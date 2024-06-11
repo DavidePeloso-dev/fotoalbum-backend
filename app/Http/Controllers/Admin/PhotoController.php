@@ -6,6 +6,7 @@ use App\Models\Photo;
 use App\Http\Requests\StorePhotoRequest;
 use App\Http\Requests\UpdatePhotoRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -25,7 +26,8 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        return view('admin.photos.create');
+        $categories = Category::all();
+        return view('admin.photos.create', compact('categories'));
     }
 
     /**
@@ -57,7 +59,8 @@ class PhotoController extends Controller
      */
     public function edit(Photo $photo)
     {
-        return view('admin.photos.edit', compact('photo'));
+        $categories = Category::all();
+        return view('admin.photos.edit', compact('photo', 'categories'));
     }
 
     /**
