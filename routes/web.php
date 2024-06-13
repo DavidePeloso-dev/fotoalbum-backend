@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\ProfileController;
@@ -25,9 +26,8 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('photos', PhotoController::class)->parameters([
-            'photos' => 'photo:slug'
-        ]);
+        Route::resource('photos', PhotoController::class)->parameters(['photos' => 'photo:slug']);
+        Route::resource('categories', CategoryController::class)->parameters(['categories' => 'category:slug']);
     });
 
 
