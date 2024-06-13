@@ -41,6 +41,8 @@ class PhotoController extends Controller
             $validated['image'] = Storage::put('uploads', $validated['image']);
         }
 
+        $validated['slug'] = Str::slug($validated['title'], '-');
+
         //dd($validated);
         Photo::create($validated);
         return to_route('admin.photos.index')->with('message', 'Congratulation Photo added Correctly!');
@@ -81,6 +83,8 @@ class PhotoController extends Controller
         if (!$request->has('evidence')) {
             $validated['evidence'] = 0;
         }
+
+        $validated['slug'] = Str::slug($validated['title'], '-');
 
         //dd($validated);
         $photo->update($validated);

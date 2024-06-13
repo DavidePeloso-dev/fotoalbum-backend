@@ -25,7 +25,9 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('photos', PhotoController::class);
+        Route::resource('photos', PhotoController::class)->parameters([
+            'photos' => 'photo:slug'
+        ]);
     });
 
 
