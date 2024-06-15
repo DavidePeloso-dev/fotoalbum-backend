@@ -17,6 +17,7 @@ class CategorySeeder extends Seeder
         $categories = ['Landscape', 'Portrait', 'Vintage', 'Building', 'Grayscale'];
         foreach ($categories as $category) {
             $newCategory = new Category();
+            $newCategory->user_id = 1;
             $newCategory->name = $category;
             $newCategory->slug = Str::slug($newCategory->name, '-');
             $newCategory->save();

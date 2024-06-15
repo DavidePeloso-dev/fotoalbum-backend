@@ -54,7 +54,7 @@
                 </tr>
                 @empty
                 <tr class="table-dark">
-                    <td scope="row">No Photos yet!</td>
+                    <td scope="row" colspan="5">No Photos yet!</td>
                 </tr>
                 @endforelse
             </tbody>

@@ -42,7 +42,7 @@
                 </tr>
                 @empty
                 <tr class="table-dark">
-                    <td scope="row">No Categories yet!</td>
+                    <td scope="row" colspan="4">No Categories yet!</td>
                 </tr>
                 @endforelse
             </tbody>

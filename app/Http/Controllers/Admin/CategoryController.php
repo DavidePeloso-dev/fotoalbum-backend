@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderByDesc('id')->paginate(8);
+        $categories = Category::where('user_id', auth()->id())->orderByDesc('id')->paginate(8);
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -35,6 +35,7 @@ class CategoryController extends Controller
         $validated = $request->validated();
 
         $validated['slug'] = Str::slug($validated['name'], '-');
+        $validated['user_id'] = auth()->id();
         //dd($validated);
         Category::create($validated);
         return to_route('admin.categories.index')->with('message', 'Congratulation Category added Correctly!');
@@ -53,6 +54,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        if ($category->user_id != auth()->id()) {
+            abort(403, "You Can'T Edit Categories that are NOT Yours!");
+        }
         return view('admin.categories.edit', compact('category'));
     }
 
@@ -74,6 +78,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        if ($category->user_id != auth()->id()) {
+            abort(403, "You Can'T Delete Categories that are NOT Yours!");
+        }
         $category->delete();
         return to_route('admin.categories.index')->with('message', 'Congratulation Category deleted correctly!');
     }
