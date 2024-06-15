@@ -1,1 +1,85 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+* {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+
+:root {
+    --bg-app: #101010;
+    --primary-app: #DDF247;
+    --ligth-app: #F4F4F2;
+    --accent-app: #F1511B;
+}
+
+*[class^="bg-"] {
+    color: var(--ligth-app);
+}
+
+.bg-app {
+    background-color: var(--bg-app);
+}
+
+.bg-accent {
+    background-color: var(--accent-app);
+}
+
+.bg-app-primary {
+    background-color: var(--primary-app);
+    color: var(--bg-app);
+}
+
+.app-primary {
+    color: var(--primary-app);
+}
+
+#app .navbar {
+    background-color: var(--bg-app);
+}
+
+.link {
+    border: 1px solid var(--ligth-app);
+    color: var(--ligth-app);
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+}
+
+.profile-link {
+    color: var(--ligth-app);
+    padding: 0.2rem 0;
+    border-bottom: 3px solid var(--primary-app);
+}
+
+.active {
+    background-color: var(--primary-app);
+    border-color: var(--primary-app);
+    color: var(--bg-app);
+}
+
+.add-link:hover {
+    color: var(--primary-app);
+}
+
+.form-check-input:checked {
+    background-color: var(--accent-app);
+    border-color: var(--accent-app);
+    background-image: black;
+}
+
+.btn.bg-accent {
+    transition: all;
+    transition-duration: 1s;
+}
+
+.btn.bg-accent:hover {
+    background-color: var(--accent-app);
+    scale: 1.1;
+}

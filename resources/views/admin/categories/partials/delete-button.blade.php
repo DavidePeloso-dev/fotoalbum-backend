@@ -1,5 +1,5 @@
 <!-- Modal trigger button -->
-<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalId-{{$category->id}}">
+<button type="button" class="btn bg-accent" data-bs-toggle="modal" data-bs-target="#modalId-{{$category->id}}">
     Delete
 </button>
 

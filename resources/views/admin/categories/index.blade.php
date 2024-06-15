@@ -5,7 +5,7 @@
     <section class="my-3 d-flex justify-content-between align-items-center">
         <h2>Categories</h2>
         <div class="actions">
-            <a class="nav-link" href="{{route('admin.categories.create')}}">
+            <a class="nav-link add-link" href="{{route('admin.categories.create')}}">
                 <i class="fa-solid fa-circle-plus"></i>
                 {{__('Add Category')}}
             </a>
@@ -35,7 +35,7 @@
                     <td>{{$category->name}}</td>
                     <td>{{Count($category->photos)}}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{route('admin.categories.show', $category)}}">View</a>
+                        <a class="btn bg-app-primary" href="{{route('admin.categories.show', $category)}}">View</a>
                         <a class="btn btn-secondary" href="{{route('admin.categories.edit', $category)}}">Edit</a>
                         @include('admin.categories.partials.delete-button')
                     </td>

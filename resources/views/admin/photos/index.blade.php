@@ -5,7 +5,7 @@
     <section class="my-3 d-flex justify-content-between align-items-center">
         <h2>Photos</h2>
         <div class="actions">
-            <a class="nav-link" href="{{route('admin.photos.create')}}">
+            <a class="nav-link add-link" href="{{route('admin.photos.create')}}">
                 <i class="fa-solid fa-circle-plus"></i>
                 {{__('Add Photo')}}
             </a>
@@ -47,7 +47,7 @@
                         </div>
                     </td>
                     <td>
-                        <a class="btn btn-primary" href="{{route('admin.photos.show', $photo)}}">View</a>
+                        <a class="btn bg-app-primary" href="{{route('admin.photos.show', $photo)}}">View</a>
                         <a class="btn btn-secondary" href="{{route('admin.photos.edit', $photo)}}">Edit</a>
                         @include('admin.photos.partials.delete-button')
                     </td>
