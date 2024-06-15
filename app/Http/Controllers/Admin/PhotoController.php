@@ -10,6 +10,8 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
+use function Laravel\Prompts\error;
+
 class PhotoController extends Controller
 {
     /**
@@ -18,7 +20,7 @@ class PhotoController extends Controller
     public function index()
     {
         //dd(Photo::all());
-        return view('admin.photos.index', ['photos' => Photo::orderByDesc('id')->paginate(8)]);
+        return view('admin.photos.index', ['photos' => Photo::where('user_id', auth()->id())->orderByDesc('id')->paginate(8)]);
     }
 
     /**
@@ -42,6 +44,7 @@ class PhotoController extends Controller
         }
 
         $validated['slug'] = Str::slug($validated['title'], '-');
+        $validated['user_id'] = auth()->id();
 
         //dd($validated);
         Photo::create($validated);
@@ -53,6 +56,9 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
+        if ($photo->user_id != auth()->id()) {
+            abort(403, "Why do you wanna see it here? Go whatch it on the front end, dumbass!");
+        }
         return view('admin.photos.show', compact('photo'));
     }
 
@@ -61,6 +67,9 @@ class PhotoController extends Controller
      */
     public function edit(Photo $photo)
     {
+        if ($photo->user_id != auth()->id()) {
+            abort(403, "You Can'T Edit Photos that are NOT Yours!");
+        }
         $categories = Category::all();
         return view('admin.photos.edit', compact('photo', 'categories'));
     }
@@ -96,6 +105,9 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
+        if ($photo->user_id != auth()->id()) {
+            abort(403, "You Can'T Delete Photos that are NOT Yours!");
+        }
         if ($photo->image && !Str::startswith($photo->image, 'https://')) {
             Storage::delete($photo->image);
         }

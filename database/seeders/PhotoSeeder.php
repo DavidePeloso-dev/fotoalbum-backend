@@ -17,6 +17,7 @@ class PhotoSeeder extends Seeder
     {
         for ($i = 0; $i < 10; $i++) {
             $photo = new Photo();
+            $photo->user_id = 1;
             $photo->title = $faker->words(3, true);
             $photo->slug = Str::slug($photo->title, '-');
             $photo->description = $faker->paragraphs(4, true);

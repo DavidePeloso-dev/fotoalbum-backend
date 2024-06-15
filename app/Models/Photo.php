@@ -11,10 +11,15 @@ class Photo extends Model
 {
     use HasFactory;
 
-    public $fillable = ['title', 'slug', 'image', 'description', 'evidence', 'category_id'];
+    public $fillable = ['title', 'slug', 'image', 'description', 'evidence', 'category_id', 'user_id'];
 
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
