@@ -16,13 +16,14 @@
 
     <div class="table-responsive-md">
         <table class="table table-striped table-hover table-borderless table-secondary align-middle">
-            <thead class="table-dark">
-                <caption>
-                    Categories
-                </caption>
+            <caption>
+                Categories
+            </caption>
+            <thead class="table-secondary">
                 <tr>
                     <th>Id</th>
                     <th>Category name</th>
+                    <th>Times in use</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -32,6 +33,7 @@
                 <tr class="table-dark">
                     <td scope="row">{{$category->id}}</td>
                     <td>{{$category->name}}</td>
+                    <td>{{Count($category->photos)}}</td>
                     <td>
                         <a class="btn btn-primary" href="{{route('admin.categories.show', $category)}}">View</a>
                         <a class="btn btn-secondary" href="{{route('admin.categories.edit', $category)}}">Edit</a>

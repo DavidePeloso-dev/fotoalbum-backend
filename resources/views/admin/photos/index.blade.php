@@ -16,10 +16,10 @@
 
     <div class="table-responsive-md">
         <table class="table table-striped table-hover table-borderless table-secondary align-middle">
-            <thead class="table-dark">
-                <caption>
-                    Photos
-                </caption>
+            <caption>
+                Photos
+            </caption>
+            <thead class="table-secondary">
                 <tr>
                     <th>Id</th>
                     <th>Photo</th>
