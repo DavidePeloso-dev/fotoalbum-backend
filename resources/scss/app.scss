@@ -32,9 +32,21 @@ a {
     background-color: var(--accent-app);
 }
 
+.bg-accent:hover {
+    background-color: var(--accent-app);
+    opacity: 0.8;
+}
+
 .bg-app-primary {
     background-color: var(--primary-app);
     color: var(--bg-app);
+
+}
+
+.bg-app-primary:hover {
+    background-color: var(--primary-app);
+    color: var(--bg-app);
+    opacity: 0.8;
 }
 
 .app-primary {
@@ -74,12 +86,12 @@ a {
     background-image: black;
 }
 
-.btn.bg-accent {
+.btn-app {
     transition: all;
     transition-duration: 1s;
 }
 
-.btn.bg-accent:hover {
+.btn-app:hover {
     background-color: var(--accent-app);
     scale: 1.1;
 }

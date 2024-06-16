@@ -16,7 +16,7 @@
             Go see the guest Application whith the button below. <br>
             Let's press It Now<i class="bi bi-arrow-down"></i>
         </p>
-        <a href="https://packagist.org/packages/pacificdev/laravel_9_preset" class="btn bg-accent btn-lg" type="button">See the Application</a>
+        <a href="http://localhost:5174/" target="_blank" class="btn btn-app bg-accent btn-lg" type="button">See the Application</a>
     </div>
 </div>
 
