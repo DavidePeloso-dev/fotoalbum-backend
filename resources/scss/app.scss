@@ -12,6 +12,19 @@ a {
     text-decoration: none;
 }
 
+.page-link {
+    color: var(--primary-app);
+}
+
+.page-item.active {
+    .page-link {
+        background-color: var(--primary-app);
+        border: var(--primary-app);
+        color: var(--bg-app);
+    }
+}
+
+
 
 :root {
     --bg-app: #101010;
