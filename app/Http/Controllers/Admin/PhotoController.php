@@ -20,7 +20,7 @@ class PhotoController extends Controller
     public function index()
     {
         //dd(Photo::all());
-        return view('admin.photos.index', ['photos' => Photo::where('user_id', auth()->id())->orderByDesc('id')->paginate(8)]);
+        return view('admin.photos.index', ['photos' => Photo::where('user_id', auth()->id())->orderByDesc('id')->paginate(5)]);
     }
 
     /**

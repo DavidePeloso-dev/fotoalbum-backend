@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('photos', [ApiController::class, 'photos']);
 Route::get('photos/evidence', [ApiController::class, 'evidence']);
 Route::get('photos/about', [ApiController::class, 'about']);
+Route::get('categories', [ApiController::class, 'categories']);
