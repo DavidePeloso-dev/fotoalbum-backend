@@ -24,7 +24,7 @@
                 <form action="{{route('admin.photos.destroy', $photo)}}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">
+                    <button type="submit" class="btn bg-accent">
                         Delete
                     </button>
 

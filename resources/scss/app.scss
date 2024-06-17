@@ -108,3 +108,25 @@ a {
     background-color: var(--accent-app);
     scale: 1.1;
 }
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 #f1501b21;
+}
+
+.wrapper {
+    min-height: calc(100vh - 110px);
+}
+
+.badge-accent {
+    background-color: var(--accent-app);
+}
+
+.show {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
